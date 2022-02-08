@@ -1,12 +1,32 @@
+winodw.addEventLIstner('DOMContentLoaded', (event) => {
+    getVisitCount();
+})
+
+
 var counterContainer = document.querySelector(".website-counter");
 var visitCount = localStorage.getItem("page_view");
-//Add entry for key="page_view"
-if(visitCount) {
-    visitCount = Number(visitCount) + 1;
-    localStorage.setItem("page_view", visitCount);
+const funtionAPI = '';
+
+const getVisitCount = () => {
+    if(visitCount) {
+        visitCount = Number(visitCount) + 1;
+        localStorage.setItem("page_view", visitCount);
+    }
+    else {
+        visitCount = 1;
+        localStorage.setItem("page_view", 1);
+    }
+    fetch(funtionAPI).then(response => {
+        return response.json()
+    }).then(response => {
+        console.log(" Website called the function API");
+        count = response.count;
+        counterContainer.innerHTML = count;
+    }).catch(function(error){
+        console.log(error);
+    })
+    return count;
 }
-else {
-    visitCount = 1;
-    localStorage.setItem("page_view", 1);
-}
-counterContainer.innerHTML = visitCount;
+
+
+
