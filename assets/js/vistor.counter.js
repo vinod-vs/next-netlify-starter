@@ -1,4 +1,4 @@
-winodw.addEventLIstner('DOMContentLoaded', (event) => {
+window.addEventLIstner('DOMContentLoaded', (event) => {
     getVisitCount();
 })
 
