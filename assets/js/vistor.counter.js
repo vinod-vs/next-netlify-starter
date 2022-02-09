@@ -1,13 +1,10 @@
-window.addEventLIstner('DOMContentLoaded', (event) => {
-    getVisitCount();
-})
-
 
 var counterContainer = document.querySelector(".website-counter");
 
 const functionAPI = 'http://localhost:7071/api/HttpTrigger1';
 
 const getVisitCount = () => {
+    var count;
     
     fetch(functionAPI).then(response => {
         return response.json()
@@ -21,5 +18,6 @@ const getVisitCount = () => {
     return count;
 }
 
+getVisitCount();
 
 
